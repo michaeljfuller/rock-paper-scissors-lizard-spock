@@ -1,5 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import css from '../styles/index.module.scss'
+import Game from "~/components/Game";
 
 export const meta: MetaFunction = () => {
   return [
@@ -11,18 +12,7 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <div className="flex h-screen items-center justify-center">
-      <div>
-      Score
-      Rules
-
-      You Picked
-      The House Picked
-
-      You Win
-      You Lose
-
-      Play Again
-      </div>
+      <Game />
 
       <div className={css.footer}>
         <div className={css.attribution}>
