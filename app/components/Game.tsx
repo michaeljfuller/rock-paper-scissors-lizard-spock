@@ -1,20 +1,34 @@
+import {useState} from "react";
 import css from './Game.module.scss'
 import useScore from "./Game/hooks/useScore";
-import {answers} from "~/components/Game/constants/answers";
+import {answers, Answer} from "~/components/Game/constants/answers";
 import GameHeader from "./Game/GameHeader";
-import GameButtonContainer from "~/components/Game/GameButtonContainer";
+import AnswerSelect from "~/components/Game/AnswerSelect";
+import AnswerResult from "~/components/Game/AnswerResult";
 
-export type GameProps = {
-    
-}
+export type GameProps = {}
 
 export default function Game(props: GameProps) {
     const [score, setScore] = useScore()
+    const [answer, setAnswer] = useState<Answer|undefined>()
     
     return <div className={css.Game}>
         <GameHeader score={score}>
-            {answers.map(answer => <>{answer}<br /></>)}
+            Rock<br />
+            Paper<br />
+            Scissors<br />
+            Lizard<br />
+            Spock
         </GameHeader>
-        <GameButtonContainer answers={answers} />
+        {!answer 
+            ? <AnswerSelect answerOptions={answers} onSelectedAnswer={setAnswer} /> 
+            : <AnswerResult 
+                userAnswer={answer} 
+                answerOptions={answers}
+                onResult={win => setScore((score ?? 0) + (win ? 1 : -1))} 
+                onPlayAgain={() => setAnswer(undefined)}
+            />
+        }
+        
     </div>
 }
