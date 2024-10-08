@@ -13,13 +13,7 @@ export default function Game(props: GameProps) {
     const [answer, setAnswer] = useState<Answer|undefined>()
     
     return <div className={css.Game}>
-        <GameHeader score={score}>
-            Rock<br />
-            Paper<br />
-            Scissors<br />
-            Lizard<br />
-            Spock
-        </GameHeader>
+        <GameHeader score={score} />
         {!answer 
             ? <AnswerSelect answerOptions={answers} onSelectedAnswer={setAnswer} /> 
             : <AnswerResult 

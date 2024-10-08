@@ -2,6 +2,7 @@ import css from './AnswerSelect.module.scss'
 import {Answer} from "~/components/Game/constants/answers";
 import GameButton from "~/components/Game/GameButton";
 import {getCoordinatesFromAngle} from "~/utils/geometry";
+import GameBackground from "~/components/Game/graphics/GameBackground";
 
 export type GameButtonContainerProps = {
     answerOptions: ReadonlyArray<Answer>
@@ -13,6 +14,7 @@ export default function AnswerSelect({
     onSelectedAnswer
 }: GameButtonContainerProps) {
     return <div className={css.GameButtonContainer}>
+        <GameBackground className={css.background} />
         {answerOptions.map((answer, index, {length: quantity}) => {
             const degreesSeparation = 360 / quantity
             const [x, y] = getCoordinatesFromAngle((degreesSeparation * index), 100)
