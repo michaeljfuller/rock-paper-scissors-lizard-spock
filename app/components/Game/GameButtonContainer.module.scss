@@ -1,5 +1,5 @@
 @use 'GameButton.module';
-$buttonContainerSize: GameButton.$size * 3;
+$buttonContainerSize: GameButton.$size * 4;
 
 .GameButtonContainer {
     position: relative;
@@ -8,7 +8,12 @@ $buttonContainerSize: GameButton.$size * 3;
 
     .buttonWrapper {
         position: absolute;
-        top: ($buttonContainerSize - GameButton.$size) * 0.5;
-        left: ($buttonContainerSize - GameButton.$size) * 0.5;
+        top: $buttonContainerSize * 0.5;
+        left: $buttonContainerSize * 0.5;
+        & > * {
+            position: absolute;
+            left: GameButton.$size * -0.5;
+            top: GameButton.$size * -0.5;
+        }
     }
 }

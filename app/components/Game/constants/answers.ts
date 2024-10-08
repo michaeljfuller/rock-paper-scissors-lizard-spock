@@ -1,4 +1,10 @@
-export const answers = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock'] as const
+export const answers = [
+    'Scissors',
+    'Paper',
+    'Rock', 
+    'Lizard', 
+    'Spock'
+] as const
 
 export type Answer = typeof answers[number]
 

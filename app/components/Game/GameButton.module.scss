@@ -8,4 +8,8 @@ $size: 70px;
   font-size: 10pt;
   line-height: $size;
   text-align: center;
+  
+  &:hover {
+    border-color: blue;
+  }
 }
