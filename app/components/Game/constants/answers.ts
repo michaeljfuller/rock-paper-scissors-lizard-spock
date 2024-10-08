@@ -8,11 +8,11 @@ export const answers = [
 
 export type Answer = typeof answers[number]
 
-export type AnswerToStrengthsMap = {
+export type AnswerWinConditionsMap = {
     [answer in Answer]: Answer[]
 }
 
-export const answerToStrengthsMap: AnswerToStrengthsMap = {
+export const answerWinConditionsMap: AnswerWinConditionsMap = {
     Rock: ["Scissors", "Lizard"],
     Paper: ["Rock", "Spock"],
     Scissors: ["Paper", "Lizard"],

@@ -25,7 +25,7 @@ export default function Game(props: GameProps) {
             : <AnswerResult 
                 userAnswer={answer} 
                 answerOptions={answers}
-                onResult={win => setScore((score ?? 0) + (win ? 1 : -1))} 
+                onMark={scoreChange => setScore((score ?? 0) + scoreChange)} 
                 onPlayAgain={() => setAnswer(undefined)}
             />
         }
