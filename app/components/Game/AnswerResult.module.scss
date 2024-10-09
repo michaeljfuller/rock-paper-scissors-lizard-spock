@@ -1,3 +1,39 @@
 .AnswerResult {
-  border: 1px solid red;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 5vmin;
+  width: 100%;
+
+  .answerColumn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    p {
+      color: white;
+      text-align: center;
+    }
+
+    .answerButton {
+      $size: 30vmin;
+      width: $size;
+      height: $size;
+    }
+  }
+  
+  .actionColumn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 150px;
+    
+    p {
+      color: white;
+      text-align: center;
+    }
+  }
 }

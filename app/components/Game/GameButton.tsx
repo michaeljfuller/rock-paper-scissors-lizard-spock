@@ -7,7 +7,7 @@ import GameButtonBackground from "~/components/Game/graphics/GameButtonBackgroun
 export type GameButtonProps =  Omit<DetailedHTMLProps<
     ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement
 >, 'onClick' | 'children'> & {
-    value: Answer
+    value: Answer | undefined
     onClick?: (answer: Answer) => void
 }
 
@@ -16,9 +16,9 @@ export default function GameButton({value, onClick, className, ...props}: GameBu
         {...props}
         className={[css.GameButton, className].filter(Boolean).join(' ')}
         disabled={props.disabled ?? !onClick}
-        onClick={() => onClick?.(value)}
+        onClick={() => value && onClick?.(value)}
     >
         <GameButtonBackground value={value} className={css.background} />
-        <AnswerIcon answer={value} className={css.icon} />
+        {value && <AnswerIcon answer={value} className={css.icon} />}
     </button>
 }
