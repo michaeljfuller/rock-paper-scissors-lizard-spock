@@ -13,7 +13,7 @@ export default function GameHeader(props: GameHeaderProps) {
         </div>
         <div className={css.score}>
             <p>Score</p>
-            <h2>{props.score}</h2>
+            <p>{props.score}</p>
         </div>
     </div>
 }

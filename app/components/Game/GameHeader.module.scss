@@ -1,17 +1,35 @@
+@use '../../styles/constants/color';
+@use '../../styles/constants/font';
+
 .GameHeader {
-  border: 1px solid red;
+  border: 3px solid color.$header-outline;
   border-radius: 10px;
   display: flex;
   flex-direction: row;
-  padding: 5px;
-  gap: 5px;
+  padding: 15px 20px;
 
   .logo {
     flex: 1;
   }
 
   .score {
-    border: 1px solid red;
+    background-color: white;
+    padding: 10px;
     border-radius: 10px;
+    min-width: 150px;
+    text-align: center;
+
+    & > *:nth-child(1) {
+      color: hsl(229, 64%, 46%);
+      font-size: 16pt;
+      font-weight: font.$weight-regular;
+    }
+    & > *:nth-child(2) {
+      color: color.$dark-text;
+      font-size: 40pt;
+      line-height: 45pt;
+      font-weight: font.$weight-heavy;
+    }
   }
+  
 }
