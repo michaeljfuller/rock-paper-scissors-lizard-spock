@@ -60,7 +60,7 @@
 
   @include _resize(30vmin, 60%);
   
-  @include screen.landscape { @include _resize(80%, 35vh) }
+  @include screen.landscape { @include _resize(35vh, 80%) }
   @include screen.desktop(landscape) { @include _resize(30vmin, 80%) }
   @include screen.laptop(landscape) { @include _resize(26vmin, 80%) }
   @include screen.phone(landscape) { @include _resize(25vmin, 100%, 10pt) }
@@ -79,7 +79,6 @@
       bottom: 10vh;
       left: 20%;
       right: 20%;
-      @include screen.helper-outline(red);
     }
   }
 }
