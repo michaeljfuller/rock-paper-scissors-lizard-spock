@@ -1,0 +1,49 @@
+// Maximum width breakpoints
+
+$small-width-min:   320px;              $small-width-max:   420px;
+$phone-width-min:   $small-width-max;   $phone-width-max:   600px;
+$laptop-width-min:  $phone-width-max;   $laptop-width-max:  768px;
+$desktop-width-min: $laptop-width-max;  $desktop-width-max: 992px;
+$large-width-min:   $desktop-width-max; $large-width-max:  1200px;
+
+// Media query mixins
+
+@mixin under($value) { @media screen and (max-width: $value) { @content } }
+@mixin above($value) { @media screen and (min-width: $value) { @content } }
+@mixin between($min, $max) { @media screen and (min-width: $min) and (max-width: $max) { @content } }
+
+@mixin smallest { @include under($small-width-min) { @content } } 
+@mixin small    { @include between( $small-width-min,   $small-width-max   ) { @content } } 
+@mixin phone    { @include between( $phone-width-min,   $phone-width-max   ) { @content } } 
+@mixin laptop   { @include between( $laptop-width-min,  $laptop-width-max  ) { @content } } 
+@mixin desktop  { @include between( $desktop-width-min, $desktop-width-max ) { @content } } 
+@mixin large    { @include between( $large-width-min,   $large-width-max   ) { @content } }
+@mixin largest  { @include above($large-width-max) { @content } }
+
+// Helper mixins to visualise screen sizes
+
+@mixin helper-outline {
+  outline: 3px ridge grey;
+}
+@mixin helper-label($parent-position: relative) {
+  position: $parent-position;
+  @include smallest { @include _label("smallest") }
+  @include small { @include _label("small") }
+  @include phone { @include _label("phone") }
+  @include laptop { @include _label("laptop") }
+  @include desktop { @include _label("desktop") }
+  @include large { @include _label("large") }
+  @include largest { @include _label("largest") }
+}
+@mixin _label($text, $font-size: 8pt) {
+  &::after { 
+    content: $text; 
+    font-size: $font-size;
+    color: white; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    padding: 2px 5px;
+  }
+}

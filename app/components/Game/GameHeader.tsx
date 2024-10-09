@@ -8,12 +8,12 @@ export type GameHeaderProps = PropsWithChildren<{
 
 export default function GameHeader(props: GameHeaderProps) {
     return <div className={css.GameHeader}>
-        <div className={css.logo}>
-            <GameLogo />
-        </div>
+        <GameLogo className={css.logo} />
         <div className={css.score}>
             <p>Score</p>
-            <p>{props.score}</p>
+            <p>{props.score ?? SPACE}</p>
         </div>
     </div>
 }
+
+const SPACE = '\u00A0'
