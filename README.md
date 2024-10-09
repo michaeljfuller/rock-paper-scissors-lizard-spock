@@ -15,7 +15,7 @@ Users should be able to:
 ### Links
 
 - [Challenge brief](https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH)
-- [Hosted solution](rock-paper-scissors-lizard-spock-deb.pages.dev)
+- [Hosted solution](https://rock-paper-scissors-lizard-spock-deb.pages.dev)
 
 ## Built with
 
