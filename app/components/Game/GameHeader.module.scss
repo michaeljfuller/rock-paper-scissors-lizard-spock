@@ -12,10 +12,10 @@
   margin: 0 auto;
 
   width: 50%;
-  height: 150px;
-  @include screen.under(screen.$laptop-width-max) { width: 60%; }
-  @include screen.under(screen.$phone-width-max)  { width: 80%; } 
-  @include screen.under(screen.$small-width-max)  { width: 90%; height: 120px; }
+  height: 100%;
+  @include screen.width-under(screen.$laptop-width-max) { width: 60%; }
+  @include screen.width-under(screen.$phone-width-max)  { width: 80%; } 
+  @include screen.width-under(screen.$small-width-max)  { width: 90%; height: 120px; }
 
   .logo {
     height: 100%;
@@ -44,7 +44,7 @@
       font-weight: font.$weight-heavy;
     }
 
-    @include screen.under(screen.$small-width-max) {
+    @include screen.width-under(screen.$small-width-max) {
       min-width: 100px;
       & > *:nth-child(1) {
         font-size: 14pt;

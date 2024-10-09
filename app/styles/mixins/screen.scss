@@ -8,32 +8,62 @@ $large-width-min:   $desktop-width-max; $large-width-max:  1200px;
 
 // Media query mixins
 
-@mixin under($value) { @media screen and (max-width: $value) { @content } }
-@mixin above($value) { @media screen and (min-width: $value) { @content } }
-@mixin between($min, $max) { @media screen and (min-width: $min) and (max-width: $max) { @content } }
+@mixin landscape { @media screen and (orientation: landscape) { @content } }
+@mixin portrait  { @media screen and (orientation: portrait ) { @content } }
 
-@mixin smallest { @include under($small-width-min) { @content } } 
-@mixin small    { @include between( $small-width-min,   $small-width-max   ) { @content } } 
-@mixin phone    { @include between( $phone-width-min,   $phone-width-max   ) { @content } } 
-@mixin laptop   { @include between( $laptop-width-min,  $laptop-width-max  ) { @content } } 
-@mixin desktop  { @include between( $desktop-width-min, $desktop-width-max ) { @content } } 
-@mixin large    { @include between( $large-width-min,   $large-width-max   ) { @content } }
-@mixin largest  { @include above($large-width-max) { @content } }
+@mixin width-under($value, $orientation: 0) { @include _screen-media(max-width, $value, $orientation) { @content } }
+@mixin width-above($value, $orientation: 0) { @include _screen-media(min-width, $value, $orientation) { @content } }
+@mixin width-between($min, $max, $orientation: 0) { @include _screen-media-between(min-width, $min, max-width, $max, $orientation) { @content } }
+
+@mixin height-under($value, $orientation: 0) { @include _screen-media(max-height, $value, $orientation) { @content } }
+@mixin height-above($value, $orientation: 0) { @include _screen-media(min-height, $value, $orientation) { @content } }
+@mixin height-between($min, $max, $orientation: 0) { @include _screen-media-between(min-height, $min, max-height, $max, $orientation) { @content } }
+
+@mixin _screen-media($property, $value, $orientation) {
+  @if $orientation == 0 { @media screen and ($property: $value) { @content } }
+  @else { @media screen and ($property: $value) and (orientation: $orientation) { @content } }
+}
+@mixin _screen-media-between($min-prop, $min-val, $max-prop, $max-val, $orientation) {
+  @if $orientation == 0 { @media screen and ($min-prop: $min-val) and ($max-prop: $max-val) { @content } }
+  @else { @media screen and ($min-prop: $min-val) and ($max-prop: $max-val) and (orientation: $orientation) { @content } }
+}
+
+@mixin smallest ($orientation: 0) { @include width-under($small-width-min, $orientation) { @content } } 
+@mixin small    ($orientation: 0) { @include width-between( $small-width-min,   $small-width-max,   $orientation ) { @content } } 
+@mixin phone    ($orientation: 0) { @include width-between( $phone-width-min,   $phone-width-max,   $orientation ) { @content } } 
+@mixin laptop   ($orientation: 0) { @include width-between( $laptop-width-min,  $laptop-width-max,  $orientation ) { @content } } 
+@mixin desktop  ($orientation: 0) { @include width-between( $desktop-width-min, $desktop-width-max, $orientation ) { @content } } 
+@mixin large    ($orientation: 0) { @include width-between( $large-width-min,   $large-width-max,   $orientation ) { @content } }
+@mixin largest  ($orientation: 0) { @include width-above($large-width-max, $orientation) { @content } }
 
 // Helper mixins to visualise screen sizes
 
-@mixin helper-outline {
-  outline: 3px ridge grey;
+@mixin helper-outline($color: grey) {
+  outline: 3px ridge $color;
 }
 @mixin helper-label($parent-position: relative) {
   position: $parent-position;
-  @include smallest { @include _label("smallest") }
-  @include small { @include _label("small") }
-  @include phone { @include _label("phone") }
-  @include laptop { @include _label("laptop") }
-  @include desktop { @include _label("desktop") }
-  @include large { @include _label("large") }
-  @include largest { @include _label("largest") }
+  
+  @include smallest(landscape) { @include _label("smallest:ls") }
+  @include smallest(portrait) { @include _label("smallest:po") }
+  
+  @include small(landscape) { @include _label("small:ls") }
+  @include small(portrait) { @include _label("small:po") }
+  
+  @include phone(landscape) { @include _label("phone:ls") }
+  @include phone(portrait) { @include _label("phone:po") }
+  
+  @include laptop(landscape) { @include _label("laptop:ls") }
+  @include laptop(portrait) { @include _label("laptop:po") }
+  
+  @include desktop(landscape) { @include _label("desktop:ls") }
+  @include desktop(portrait) { @include _label("desktop:po") }
+  
+  @include large(landscape) { @include _label("large:ls") }
+  @include large(portrait) { @include _label("large:po") }
+  
+  @include largest(landscape) { @include _label("largest:ls") }
+  @include largest(portrait) { @include _label("largest:po") }
 }
 @mixin _label($text, $font-size: 8pt) {
   &::after { 

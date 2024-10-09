@@ -1,5 +1,12 @@
-$button-size: 18vmin;
-$button-distance: $button-size * 1.2; /* Distance from center of buttonsContainer to center of buttonWrapper */
+@use '../../styles/mixins/screen';
+
+@mixin _radialTransformButtons($distance) { // TODO Do trig using sass:math
+    &:nth-child(1) { transform: translate($distance *  0.000, $distance * -1.000); }
+    &:nth-child(2) { transform: translate($distance *  0.951, $distance * -0.309); }
+    &:nth-child(3) { transform: translate($distance *  0.588, $distance *  0.809); }
+    &:nth-child(4) { transform: translate($distance * -0.588, $distance *  0.809); }
+    &:nth-child(5) { transform: translate($distance * -0.951, $distance * -0.309); }
+}
 
 .AnswerSelect {
     position: relative;
@@ -7,29 +14,39 @@ $button-distance: $button-size * 1.2; /* Distance from center of buttonsContaine
     justify-content: center;
     align-items: center;
     width: 100%;
-    
-    .background {
-        width: $button-distance * 2;
-        height: $button-distance * 2;
-        margin-bottom: 5%;
-    }
-    
-    .buttonsContainer {
-        position: absolute;
+
+    @mixin _resizeButtons($size, $distance) {
+        .background {
+            width: $distance * 2;
+            height: $distance * 2;
+            margin-bottom: $distance * 0.05;
+        }
         .buttonWrapper {
-            &:nth-child(1) { transform: translate($button-distance *  0.000, $button-distance * -1.000); }
-            &:nth-child(2) { transform: translate($button-distance *  0.951, $button-distance * -0.309); }
-            &:nth-child(3) { transform: translate($button-distance *  0.588, $button-distance *  0.809); }
-            &:nth-child(4) { transform: translate($button-distance * -0.588, $button-distance *  0.809); }
-            &:nth-child(5) { transform: translate($button-distance * -0.951, $button-distance * -0.309); }
+            @include _radialTransformButtons($distance);
             & > * {
-                position: absolute;
-                width: $button-size;
-                height: $button-size;
-                top: $button-size * -0.5;
-                left: $button-size * -0.5;
+                width: $size;
+                height: $size;
+                top: $size * -0.5;
+                left: $size * -0.5;
             }
         }
     }
     
+    .background {}
+    .buttonsContainer {
+        position: absolute;
+        .buttonWrapper > * { position: absolute; }
+    }
+
+    @include _resizeButtons(18vmin, 22vmin);
+    
+    @include screen.height-under(550px, landscape) { @include _resizeButtons(15vh, 20vh) }
+    @include screen.height-under(450px, landscape) { @include _resizeButtons(12vh, 18vh) }
+    @include screen.height-under(350px, landscape) { @include _resizeButtons(12vh, 15vh) }
+    
+    @include screen.laptop(portrait) { @include _resizeButtons(20vw, 22vw) }
+    @include screen.phone(portrait) { @include _resizeButtons(22vw, 25vw) }
+    @include screen.small(portrait) { @include _resizeButtons(22vw, 25vw) }
+    @include screen.smallest(portrait) { @include _resizeButtons(27vw, 30vw) }
 }
+
