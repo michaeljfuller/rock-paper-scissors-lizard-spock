@@ -17,7 +17,8 @@
   .window {
     background: white;
     border-radius: 10px;
-    width: 40vw;
+    width: 90vmin;
+    max-width: 500px;
     
     display: flex;
     flex-direction: column;

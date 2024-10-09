@@ -5,7 +5,6 @@
   flex-direction: column;
   width: 100%;
   height: 90%;
-  min-width: screen.$small-width-min;
 
   .header {
     
@@ -15,8 +14,16 @@
     flex: 1;
   }
   .footer {
-    .rulesButton {
-      
+    position: absolute;
+    bottom: 1em;
+    left: 0; 
+    right: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 1em;
+    @include screen.portrait {
+      justify-content: center;
+      bottom: 1em;
     }
   }
 }

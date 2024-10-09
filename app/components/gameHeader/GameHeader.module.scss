@@ -13,9 +13,6 @@
 
   width: 50%;
   height: 100%;
-  @include screen.width-under(screen.$laptop-width-max) { width: 60%; }
-  @include screen.width-under(screen.$phone-width-max)  { width: 80%; } 
-  @include screen.width-under(screen.$small-width-max)  { width: 90%; height: 120px; }
 
   .logo {
     height: 100%;
@@ -30,7 +27,7 @@
     background-color: white;
     padding: 10px;
     border-radius: 10px;
-    min-width: 150px;
+    width: 150px;
 
     & > *:nth-child(1) {
       @include barlow-semi-condensed.block-semibold;
@@ -43,17 +40,33 @@
       font-size: 40pt;
       line-height: 45pt;
     }
+  }
 
-    @include screen.width-under(screen.$small-width-max) {
-      min-width: 100px;
+  @mixin _resizeWidth($width) {
+    width: $width;
+  }
+  @mixin _resizeHeight($height, $scoreWidth, $scoreLabelFontSize, $scoreValueFontSize) {
+    height: $height;
+    .score {
+      width: $scoreWidth;
       & > *:nth-child(1) {
-        font-size: 14pt;
+        font-size: $scoreLabelFontSize;
       }
+
       & > *:nth-child(2) {
-        font-size: 25pt;
-        line-height: 25pt;
+        font-size: $scoreValueFontSize;
+        line-height: $scoreValueFontSize;
       }
     }
   }
+
+  @include _resizeHeight(160px, 150px, 16pt, 45pt);
+  @include screen.height-under(600px) { @include _resizeHeight(120px, 100px, 12pt, 30pt) }
+  @include screen.height-under(550px) { @include _resizeHeight(100px, 90px, 9pt, 20pt) }
+
+  @include _resizeWidth(50%);
+  @include screen.width-under(screen.$laptop-width-max) { @include _resizeWidth(60%) }
+  @include screen.width-under(screen.$phone-width-max)  { @include _resizeWidth(80%) }
+  @include screen.width-under(screen.$small-width-max)  { @include _resizeWidth(95%) }
   
 }

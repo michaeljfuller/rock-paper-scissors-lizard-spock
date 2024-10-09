@@ -30,8 +30,8 @@ export default function Game(props: GameProps) {
                     />
                 }
             </div>
-            <div className={css.rulesButton}>
-                <RulesButton className={css.rulesButton} />
+            <div className={css.footer}>
+                <RulesButton />
             </div>
         </div>
     </GameProviders>

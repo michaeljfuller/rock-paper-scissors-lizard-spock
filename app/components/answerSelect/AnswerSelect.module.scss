@@ -45,7 +45,7 @@
     @include screen.height-under(350px, landscape) { @include _resizeButtons(12vh, 15vh) }
     
     @include screen.laptop(portrait) { @include _resizeButtons(20vw, 22vw) }
-    @include screen.phone(portrait) { @include _resizeButtons(22vw, 25vw) }
+    @include screen.phone(portrait) { @include _resizeButtons(20vw, 22vw) }
     @include screen.small(portrait) { @include _resizeButtons(22vw, 25vw) }
     @include screen.smallest(portrait) { @include _resizeButtons(27vw, 30vw) }
 }
