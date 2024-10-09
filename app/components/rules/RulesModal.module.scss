@@ -1,0 +1,46 @@
+@use '../../styles/fonts/barlow-semi-condensed';
+@use '../../styles/theme/color';
+
+.RulesModal {
+  background: rgba(0, 0, 0, 0.5);
+  
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  .window {
+    background: white;
+    border-radius: 10px;
+    width: 40vw;
+    
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    
+    .header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      
+      @include barlow-semi-condensed.block-bold;
+      color: color.$dark-text;
+      
+      .closeButton {
+        cursor: pointer;
+      }
+    }
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 20px;
+    }
+  }
+}

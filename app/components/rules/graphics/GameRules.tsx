@@ -1,11 +1,11 @@
 import {ImgHTMLAttributes} from "react";
-import logoBonus from '../../../../images/logo-bonus.svg'
+import logoBonus from '../../../../images/image-rules-bonus.svg'
 
-export type GameLogoProps = Omit<
+export type GameRulesProps = Omit<
     ImgHTMLAttributes<HTMLImageElement>,
     'src' | 'alt'
 >
 
-export default function GameLogo(props: GameLogoProps) {
-    return <img {...props} src={logoBonus} alt={`Game logo`} />
+export default function GameRules(props: GameRulesProps) {
+    return <img {...props} src={logoBonus} alt={`Game rules`} />
 }

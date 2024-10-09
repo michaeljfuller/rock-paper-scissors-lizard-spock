@@ -1,11 +1,11 @@
 import {ImgHTMLAttributes} from "react";
-import imageRules from '../../../../images/image-rules-bonus.svg'
+import imageRules from '../../../../images/icon-close.svg'
 
-export type GameRulesProps = Omit<
+export type CloseIconProps = Omit<
     ImgHTMLAttributes<HTMLImageElement>,
     'src' | 'alt'
 >
 
-export default function GameRules(props: GameRulesProps) {
-    return <img {...props} src={imageRules} alt={`Game rules`} />
+export default function CloseIcon(props: CloseIconProps) {
+    return <img {...props} src={imageRules} alt={`Close icon`} />
 }
