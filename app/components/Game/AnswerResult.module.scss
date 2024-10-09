@@ -1,4 +1,6 @@
+@use '../../styles/constants/color';
 @use '../../styles/mixins/screen';
+@use '../../styles/fonts/barlow-semi-condensed';
 
 .AnswerResult {
   display: flex;
@@ -15,6 +17,8 @@
     gap: 0.5em;
     
     p {
+      @include barlow-semi-condensed.block-semibold;
+      font-size: 14pt;
       color: white;
       text-align: center;
       white-space: nowrap;
@@ -30,8 +34,15 @@
     justify-content: center;
     
     p {
+      @include barlow-semi-condensed.block-semibold;
       color: white;
       text-align: center;
+    }
+    button {
+      @include barlow-semi-condensed.block-semibold;
+      color: color.$dark-text;
+      background-color: white;
+      line-height: 3em;
     }
   }
   

@@ -1,6 +1,6 @@
 @use '../../styles/constants/color';
-@use '../../styles/constants/font';
 @use '../../styles/mixins/screen';
+@use '../../styles/fonts/barlow-semi-condensed';
 
 .GameHeader {
   border: 3px solid color.$header-outline;
@@ -33,15 +33,15 @@
     min-width: 150px;
 
     & > *:nth-child(1) {
+      @include barlow-semi-condensed.block-semibold;
       color: hsl(229, 64%, 46%);
       font-size: 16pt;
-      font-weight: font.$weight-regular;
     }
     & > *:nth-child(2) {
+      @include barlow-semi-condensed.block-semibold;
       color: color.$dark-text;
       font-size: 40pt;
       line-height: 45pt;
-      font-weight: font.$weight-heavy;
     }
 
     @include screen.width-under(screen.$small-width-max) {

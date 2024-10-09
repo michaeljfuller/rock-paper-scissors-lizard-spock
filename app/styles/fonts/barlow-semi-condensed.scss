@@ -1,0 +1,29 @@
+@mixin thin {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+@mixin semibold {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+@mixin bold {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@mixin block-semibold {
+  @include semibold;
+  letter-spacing: 1pt;
+  text-transform: uppercase;
+}
+
+@mixin block-bold {
+  @include bold;
+  letter-spacing: 1pt;
+  text-transform: uppercase;
+}
