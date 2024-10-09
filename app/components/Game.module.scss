@@ -1,3 +1,15 @@
 .Game {
+  min-width: 50vw;
+  min-height: 90vh;
   
+  display: flex;
+  flex-direction: column;
+  
+  .header {
+    
+  }
+  .content {
+    display: flex;
+    flex: 1;
+  }
 }

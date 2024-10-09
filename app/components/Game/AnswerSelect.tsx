@@ -1,7 +1,6 @@
 import css from './AnswerSelect.module.scss'
 import {Answer} from "~/components/Game/constants/answers";
 import GameButton from "~/components/Game/GameButton";
-import {getCoordinatesFromAngle} from "~/utils/geometry";
 import GameBackground from "~/components/Game/graphics/GameBackground";
 
 export type GameButtonContainerProps = {
@@ -15,18 +14,13 @@ export default function AnswerSelect({
 }: GameButtonContainerProps) {
     return <div className={css.AnswerSelect}>
         <GameBackground className={css.background} />
-        {answerOptions.map((answer, index, {length: quantity}) => {
-            const degreesSeparation = 360 / quantity
-            const [x, y] = getCoordinatesFromAngle((degreesSeparation * index), 120)
-            return <div 
-                key={answer}
-                className={css.buttonWrapper} 
-                style={{ transform: `translate(${x}px, ${y}px` }}
-            >
-                <GameButton value={answer} onClick={onSelectedAnswer} />
-            </div>
-        }
-        )}
+        <div className={css.buttonsContainer}>
+            {answerOptions.map(answer => {
+                return <div key={answer} className={css.buttonWrapper}>
+                    <GameButton value={answer} onClick={onSelectedAnswer} />
+                </div>
+            })}
+        </div>
     </div>
 }
 

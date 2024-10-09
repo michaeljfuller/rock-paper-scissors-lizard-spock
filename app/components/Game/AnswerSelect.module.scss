@@ -1,28 +1,35 @@
-@use 'GameButton.module';
-$size: GameButton.$size * 4;
-$background-size: $size * 0.6;
+$button-size: 18vmin;
+$button-distance: $button-size * 1.2; /* Distance from center of buttonsContainer to center of buttonWrapper */
 
 .AnswerSelect {
     position: relative;
-    width: $size;
-    height: $size;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     
     .background {
-        position: absolute;
-        top: ($size - $background-size) * 0.5;
-        left: ($size - $background-size) * 0.5;
-        width: $background-size;
-        height: $background-size;
+        width: $button-distance * 2;
+        height: $button-distance * 2;
+        margin-bottom: 5%;
     }
-
-    .buttonWrapper {
+    
+    .buttonsContainer {
         position: absolute;
-        top: $size * 0.5;
-        left: $size * 0.5;
-        & > * {
-            position: absolute;
-            left: GameButton.$size * -0.5;
-            top: GameButton.$size * -0.5;
+        .buttonWrapper {
+            &:nth-child(1) { transform: translate($button-distance *  0.000, $button-distance * -1.000); }
+            &:nth-child(2) { transform: translate($button-distance *  0.951, $button-distance * -0.309); }
+            &:nth-child(3) { transform: translate($button-distance *  0.588, $button-distance *  0.809); }
+            &:nth-child(4) { transform: translate($button-distance * -0.588, $button-distance *  0.809); }
+            &:nth-child(5) { transform: translate($button-distance * -0.951, $button-distance * -0.309); }
+            & > * {
+                position: absolute;
+                width: $button-size;
+                height: $button-size;
+                top: $button-size * -0.5;
+                left: $button-size * -0.5;
+            }
         }
     }
+    
 }

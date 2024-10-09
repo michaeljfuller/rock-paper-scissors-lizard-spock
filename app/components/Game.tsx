@@ -13,16 +13,20 @@ export default function Game(props: GameProps) {
     const [answer, setAnswer] = useState<Answer|undefined>()
     
     return <div className={css.Game}>
-        <GameHeader score={score} />
-        {!answer 
-            ? <AnswerSelect answerOptions={answers} onSelectedAnswer={setAnswer} /> 
-            : <AnswerResult 
-                userAnswer={answer} 
-                answerOptions={answers}
-                onMark={scoreChange => setScore((score ?? 0) + scoreChange)} 
-                onPlayAgain={() => setAnswer(undefined)}
-            />
-        }
+        <div className={css.header}>
+            <GameHeader score={score} />
+        </div>
+        <div className={css.content}>
+            {!answer 
+                ? <AnswerSelect answerOptions={answers} onSelectedAnswer={setAnswer} />
+                : <AnswerResult 
+                    userAnswer={answer} 
+                    answerOptions={answers}
+                    onMark={scoreChange => setScore((score ?? 0) + scoreChange)} 
+                    onPlayAgain={() => setAnswer(undefined)}
+                />
+            }
+        </div>
         
     </div>
 }
