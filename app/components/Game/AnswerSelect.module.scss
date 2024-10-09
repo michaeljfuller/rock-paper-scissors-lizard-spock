@@ -1,15 +1,24 @@
 @use 'GameButton.module';
-$buttonContainerSize: GameButton.$size * 4;
+$size: GameButton.$size * 4;
+$background-size: $size * 0.6;
 
-.GameButtonContainer {
+.AnswerSelect {
     position: relative;
-    width: $buttonContainerSize;
-    height: $buttonContainerSize;
+    width: $size;
+    height: $size;
+    
+    .background {
+        position: absolute;
+        top: ($size - $background-size) * 0.5;
+        left: ($size - $background-size) * 0.5;
+        width: $background-size;
+        height: $background-size;
+    }
 
     .buttonWrapper {
         position: absolute;
-        top: $buttonContainerSize * 0.5;
-        left: $buttonContainerSize * 0.5;
+        top: $size * 0.5;
+        left: $size * 0.5;
         & > * {
             position: absolute;
             left: GameButton.$size * -0.5;

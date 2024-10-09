@@ -13,11 +13,11 @@ export default function AnswerSelect({
     answerOptions,
     onSelectedAnswer
 }: GameButtonContainerProps) {
-    return <div className={css.GameButtonContainer}>
+    return <div className={css.AnswerSelect}>
         <GameBackground className={css.background} />
         {answerOptions.map((answer, index, {length: quantity}) => {
             const degreesSeparation = 360 / quantity
-            const [x, y] = getCoordinatesFromAngle((degreesSeparation * index), 100)
+            const [x, y] = getCoordinatesFromAngle((degreesSeparation * index), 120)
             return <div 
                 key={answer}
                 className={css.buttonWrapper} 
