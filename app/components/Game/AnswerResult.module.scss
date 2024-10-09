@@ -1,9 +1,10 @@
+@use '../../styles/mixins/screen';
+
 .AnswerResult {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: 5vmin;
-  width: 100%;
+  margin: 0 auto;
 
   .answerColumn {
     flex: 1;
@@ -11,17 +12,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 0.5em;
     
     p {
       color: white;
       text-align: center;
+      white-space: nowrap;
     }
 
-    .answerButton {
-      $size: 30vmin;
-      width: $size;
-      height: $size;
-    }
+    .answerButton { }
   }
   
   .actionColumn {
@@ -29,11 +28,47 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-width: 150px;
     
     p {
       color: white;
       text-align: center;
+    }
+  }
+  
+  @mixin _resize($button-size, $width: 100%, $font-size: 12pt) {
+    width: 80%;
+    gap: $button-size * 0.1;
+    .answerColumn {
+      font-size: $font-size;
+      .answerButton {
+        width: $button-size;
+        height: $button-size;
+      }
+    }
+  }
+
+  @include _resize(30vmin, 60%);
+  
+  @include screen.landscape { @include _resize(80%, 35vh) }
+  @include screen.desktop(landscape) { @include _resize(30vmin, 80%) }
+  @include screen.laptop(landscape) { @include _resize(26vmin, 80%) }
+  @include screen.phone(landscape) { @include _resize(25vmin, 100%, 10pt) }
+  @include screen.small(landscape) { @include _resize(35vmin) }
+  @include screen.smallest(landscape) { @include _resize(35vmin) }
+  
+  @include screen.portrait {
+    @include _resize(30vw);
+    .answerColumn {
+      flex-direction: column-reverse;
+      justify-content: flex-end;
+      margin-top: 10vh;
+    }
+    .actionColumn {
+      position: absolute;
+      bottom: 10vh;
+      left: 20%;
+      right: 20%;
+      @include screen.helper-outline(red);
     }
   }
 }
