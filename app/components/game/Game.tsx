@@ -1,10 +1,10 @@
 import {useState} from "react";
 import css from './Game.module.scss'
-import useScore from "./Game/hooks/useScore";
-import {answers, Answer} from "~/components/Game/constants/answers";
-import GameHeader from "./Game/GameHeader";
-import AnswerSelect from "~/components/Game/AnswerSelect";
-import AnswerResult from "~/components/Game/AnswerResult";
+import useScore from "~/components/game/hooks/useScore";
+import {answers, Answer} from "~/constants/answers";
+import GameHeader from "../gameHeader/GameHeader";
+import AnswerSelect from "~/components/answerSelect/AnswerSelect";
+import AnswerResult from "~/components/answerResult/AnswerResult";
 
 export type GameProps = {}
 

@@ -1,4 +1,4 @@
-import {Answer} from "~/components/Game/constants/answers";
+import {Answer} from "~/constants/answers";
 import {DetailedHTMLProps, HTMLAttributes} from "react";
 
 export type GameButtonBackgroundProps = DetailedHTMLProps<

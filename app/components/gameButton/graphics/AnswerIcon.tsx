@@ -1,10 +1,10 @@
 import {ImgHTMLAttributes} from "react";
-import {Answer} from "~/components/Game/constants/answers";
-import iconRock from '~/../images/icon-rock.svg'
-import iconPaper from '~/../images/icon-paper.svg'
-import iconScissors from '~/../images/icon-scissors.svg'
-import iconLizard from '~/../images/icon-lizard.svg'
-import iconSpock from '~/../images/icon-spock.svg'
+import {Answer} from "~/constants/answers";
+import iconRock from '../../../../images/icon-rock.svg'
+import iconPaper from '../../../../images/icon-paper.svg'
+import iconScissors from '../../../../images/icon-scissors.svg'
+import iconLizard from '../../../../images/icon-lizard.svg'
+import iconSpock from '../../../../images/icon-spock.svg'
 
 export type AnswerIconProps = Omit<
     ImgHTMLAttributes<HTMLImageElement>,

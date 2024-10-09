@@ -1,5 +1,5 @@
 import {ImgHTMLAttributes} from "react";
-import imageRules from '~/../images/image-rules-bonus.svg'
+import imageRules from '../../../../images/image-rules-bonus.svg'
 
 export type GameRulesProps = Omit<
     ImgHTMLAttributes<HTMLImageElement>,

@@ -1,6 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import css from '../styles/index.module.scss'
-import Game from "~/components/Game";
+import Game from "~/components/game/Game";
 
 export const meta: MetaFunction = () => {
   return [

@@ -1,5 +1,5 @@
 import {ImgHTMLAttributes} from "react";
-import logoBonus from '~/../images/logo-bonus.svg'
+import logoBonus from '../../../../images/logo-bonus.svg'
 
 export type GameLogoProps = Omit<
     ImgHTMLAttributes<HTMLImageElement>,

@@ -1,9 +1,9 @@
 import css from './AnswerResult.module.scss'
-import {Answer} from "~/components/Game/constants/answers";
-import useComputerAnswer from "~/components/Game/hooks/useComputerAnswer";
-import useMarkAnswer from "~/components/Game/hooks/useMarkAnswer";
-import GameButton from "~/components/Game/GameButton";
-import useDelay from "~/components/Game/hooks/useDelay";
+import {Answer} from "~/constants/answers";
+import useComputerAnswer from "~/components/answerResult/hooks/useComputerAnswer";
+import useMarkAnswer from "~/components/answerResult/hooks/useMarkAnswer";
+import GameButton from "~/components/gameButton/GameButton";
+import useDelay from "~/components/answerResult/hooks/useDelay";
 
 export type AnswerResult = {
     userAnswer: Answer

@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {Answer, answerWinConditionsMap} from "~/components/Game/constants/answers";
+import {Answer, answerWinConditionsMap} from "~/constants/answers";
 
 export default function useMarkAnswer(
     userAnswer: Answer, 

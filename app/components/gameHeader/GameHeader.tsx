@@ -1,6 +1,6 @@
 import css from './GameHeader.module.scss'
 import {PropsWithChildren} from "react";
-import GameLogo from "~/components/Game/graphics/GameLogo";
+import GameLogo from "~/components/gameHeader/graphics/GameLogo";
 
 export type GameHeaderProps = PropsWithChildren<{
     score: number | undefined

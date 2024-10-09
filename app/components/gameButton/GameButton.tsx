@@ -1,8 +1,8 @@
 import {DetailedHTMLProps, ButtonHTMLAttributes} from "react";
 import css from './GameButton.module.scss'
-import {Answer} from "~/components/Game/constants/answers";
-import AnswerIcon from "~/components/Game/graphics/AnswerIcon";
-import GameButtonBackground from "~/components/Game/graphics/GameButtonBackground";
+import {Answer} from "~/constants/answers";
+import AnswerIcon from "~/components/gameButton/graphics/AnswerIcon";
+import GameButtonBackground from "~/components/gameButton/graphics/GameButtonBackground";
 
 export type GameButtonProps =  Omit<DetailedHTMLProps<
     ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement

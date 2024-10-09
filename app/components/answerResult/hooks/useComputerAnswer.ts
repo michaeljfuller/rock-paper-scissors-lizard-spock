@@ -1,4 +1,4 @@
-import {Answer} from "~/components/Game/constants/answers";
+import {Answer} from "~/constants/answers";
 import {useEffect, useState} from "react";
 import {randomElement} from "~/utils/random";
 

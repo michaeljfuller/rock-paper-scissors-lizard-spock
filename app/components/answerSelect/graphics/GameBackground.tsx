@@ -1,5 +1,5 @@
 import {ImgHTMLAttributes} from "react";
-import backgroundPentagon from '~/../images/bg-pentagon.svg'
+import backgroundPentagon from '../../../../images/bg-pentagon.svg'
 
 export type GameBackgroundProps = Omit<
     ImgHTMLAttributes<HTMLImageElement>,

@@ -1,7 +1,7 @@
 import css from './AnswerSelect.module.scss'
-import {Answer} from "~/components/Game/constants/answers";
-import GameButton from "~/components/Game/GameButton";
-import GameBackground from "~/components/Game/graphics/GameBackground";
+import {Answer} from "~/constants/answers";
+import GameButton from "~/components/gameButton/GameButton";
+import GameBackground from "~/components/answerSelect/graphics/GameBackground";
 
 export type GameButtonContainerProps = {
     answerOptions: ReadonlyArray<Answer>
